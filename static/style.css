@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    background: #98bce4;
+    background: lab(87.33% -9.74 -7.73);
     padding: 20px;
 }
 
@@ -8,7 +8,7 @@ body {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    background: white;
+    background: rgb(192, 201, 205);
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
