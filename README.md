@@ -46,12 +46,19 @@ No ML training is required for autocorrect — it's all plug-and-play!
 ```
 
 AutoCorrectProject/
+
 ├── app.py                      # Flask backend
+
 ├── model/
+
 │   └── autocomplete\_model.pkl  # Your trained autocomplete model
+
 ├── static/
+
 │   └── index.html              # Frontend interface
+
 ├── requirements.txt
+
 └── README.md
 
 ````
