@@ -1,15 +1,3 @@
-## ✅ `requirements.txt`
-
-```txt
-flask
-neuspell
-torch
-```
-
-
-
-## ✅ `README.md`
-
 ```markdown
 # 🔤 AutoCorrect + AutoComplete Web App
 
@@ -23,8 +11,8 @@ No ML training is required for autocorrect — it's all plug-and-play!
 
 ## 🚀 Features
 
-- 🔍 Instant **Autocomplete** suggestions from a prefix dictionary
-- ✨ Real-time **Spelling Correction** powered by pretrained BERT
+- 🔍 Instant Autocomplete suggestions from a prefix dictionary
+- ✨ Real-time Spelling Correction powered by pretrained BERT
 - 💻 Frontend in HTML + CSS with responsive design
 - 🔄 Powered by Flask for backend APIs
 
