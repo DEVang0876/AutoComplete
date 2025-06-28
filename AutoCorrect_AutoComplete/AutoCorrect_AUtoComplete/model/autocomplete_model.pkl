@@ -1,1 +1,0 @@
-The file model/autocomplete_model.pkl is a binary file that stores the trained autocomplete model in a serialized format. As such, it cannot be represented in a text format. Therefore, this file is intentionally left blank.
