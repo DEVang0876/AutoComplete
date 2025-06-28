@@ -22,7 +22,7 @@
             background: #e3f2fd;
             padding: 30px;
             border-radius: 16px;
-            box-shadow: 0 4px 24px 0 rgba(33, 150, 243, 0.18), 0 0 40px 10px #bbdefb;
+            box-shadow: 0 4px 24px 0 rgba(33, 150, 243, 0.10), 0 0 10px 2px #bbdefb;
             max-width: 600px;
             width: 100%;
             border: 2px solid #90caf9;
@@ -32,7 +32,6 @@
             margin-top: 0;
             color: #1976d2;
             text-align: center;
-            text-shadow: 0 0 8px #bbdefb, 0 0 2px #2196f3;
         }
 
         input[type="text"] {
@@ -45,25 +44,21 @@
             background: #eaf4fe;
             color: #1565c0;
             transition: 0.3s ease;
-            box-shadow: 0 0 8px #bbdefb;
         }
 
         input[type="text"]:focus {
             border-color: #1976d2;
-            box-shadow: 0 0 0 6px #bbdefb, 0 0 12px #2196f3;
         }
 
         #suggestions {
             margin-top: 20px;
             font-size: 16px;
             color: #1565c0;
-            text-shadow: 0 0 6px #bbdefb;
         }
 
         .label {
             font-weight: bold;
             color: #1976d2;
-            text-shadow: 0 0 6px #bbdefb;
         }
 
         .badge {
@@ -75,9 +70,10 @@
             border-radius: 20px;
             color: #1565c0;
             font-size: 14px;
-            box-shadow: 0 0 10px 2px #2196f3, 0 0 4px #e3f2fd;
-            text-shadow: 0 0 4px #e3f2fd;
             font-weight: bold;
+            /* Only badges (suggestions) have glow */
+            box-shadow: 0 0 10px 2px #afd2ef, 0 0 4px #e3f2fd;
+            text-shadow: 0 0 4px #e3f2fd;
         }
 
         @media (max-width: 600px) {
