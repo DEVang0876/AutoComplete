@@ -1,21 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AutoCorrect + AutoComplete Demo</title>
+  <meta charset="UTF-8">
+  <title>AutoCorrect + AutoComplete</title>
   <style>
-    body { font-family: Arial; padding: 20px; }
-    input { width: 300px; padding: 10px; }
-    #suggestions { margin-top: 10px; font-size: 14px; }
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 50px 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #333;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #4A90E2;
+      box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
+    }
+
+    #suggestions {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .badge {
+      display: inline-block;
+      margin: 5px 6px 0 0;
+      padding: 6px 12px;
+      background: #e3f2fd;
+      border: 1px solid #9aec77;
+      border-radius: 20px;
+      color: #c5ef5a;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      input[type="text"] {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h2>AutoCorrect + AutoComplete</h2>
-  <input type="text" id="textBox" oninput="handleInput()">
-  <div id="suggestions"></div>
+  <div class="container">
+    <h2>🔤 AutoCorrect + AutoComplete</h2>
+    <input type="text" id="textBox" placeholder="Start typing..." oninput="handleInput()">
+    <div id="suggestions"></div>
+  </div>
 
   <script>
     async function handleInput() {
-      const text = document.getElementById("textBox").value;
+      const text = document.getElementById("textBox").value.trim();
+      if (text === "") {
+        document.getElementById("suggestions").innerHTML = "";
+        return;
+      }
+
       const lastWord = text.split(" ").pop();
 
       const [autoRes, correctRes] = await Promise.all([
@@ -26,9 +106,14 @@
       const autoData = await autoRes.json();
       const correctData = await correctRes.json();
 
-      document.getElementById("suggestions").innerHTML =
-        `<b>Correction:</b> ${correctData.correction}<br>
-         <b>Suggestions:</b> ${autoData.join(", ")}`;
+      const suggestionBox = document.getElementById("suggestions");
+
+      suggestionBox.innerHTML = `
+        <div><span class="label">✅ Autocorrect:</span> ${correctData.correction}</div>
+        <div><span class="label">✨ Autocomplete Suggestions:</span><br>
+          ${autoData.map(word => `<span class="badge">${word}</span>`).join("")}
+        </div>
+      `;
     }
   </script>
 </body>
