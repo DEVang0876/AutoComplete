@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoCorrect and AutoComplete</title>
-    <link rel="stylesheet" href="styles.css">
+  <title>AutoCorrect + AutoComplete Demo</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { width: 300px; padding: 10px; }
+    #suggestions { margin-top: 10px; font-size: 14px; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>AutoCorrect and AutoComplete Application</h1>
-        <div class="input-section">
-            <label for="inputText">Enter text:</label>
-            <input type="text" id="inputText" placeholder="Type here...">
-            <button id="submitBtn">Submit</button>
-        </div>
-        <div class="output-section">
-            <h2>Suggestions:</h2>
-            <ul id="suggestionsList"></ul>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <h2>AutoCorrect + AutoComplete</h2>
+  <input type="text" id="textBox" oninput="handleInput()">
+  <div id="suggestions"></div>
+
+  <script>
+    async function handleInput() {
+      const text = document.getElementById("textBox").value;
+      const lastWord = text.split(" ").pop();
+
+      const [autoRes, correctRes] = await Promise.all([
+        fetch(`/autocomplete?prefix=${lastWord}`),
+        fetch(`/autocorrect?word=${lastWord}`)
+      ]);
+
+      const autoData = await autoRes.json();
+      const correctData = await correctRes.json();
+
+      document.getElementById("suggestions").innerHTML =
+        `<b>Correction:</b> ${correctData.correction}<br>
+         <b>Suggestions:</b> ${autoData.join(", ")}`;
+    }
+  </script>
 </body>
 </html>
