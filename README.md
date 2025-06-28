@@ -1,7 +1,3 @@
-Absolutely! Below are the complete files you need:
-
----
-
 ## ✅ `requirements.txt`
 
 ```txt
