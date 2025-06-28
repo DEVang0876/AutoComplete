@@ -6,10 +6,7 @@ neuspell
 torch
 ```
 
-> ✅ Note: `neuspell` will auto-download its pretrained model (`BERTChecker`) on first run.
-> Optional (for GPU): You can customize `torch` version based on CUDA if needed.
 
----
 
 ## ✅ `README.md`
 
