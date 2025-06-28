@@ -1,68 +1,58 @@
-```markdown
 # 🔤 AutoCorrect + AutoComplete Web App
 
 This is a web application that combines:
 - ✅ **Autocomplete** using your own trained prefix model
 - ✅ **Autocorrect** using a pretrained BERT model from [NeuSpell](https://github.com/neuspell/neuspell)
 
-No ML training is required for autocorrect — it's all plug-and-play!
+No training required for autocorrect — it's plug-and-play!
 
 ---
 
 ## 🚀 Features
 
-- 🔍 Instant Autocomplete suggestions from a prefix dictionary
-- ✨ Real-time Spelling Correction powered by pretrained BERT
-- 💻 Frontend in HTML + CSS with responsive design
-- 🔄 Powered by Flask for backend APIs
+- 🔍 Instant **Autocomplete** from prefix dictionary
+- ✨ Real-time **Spelling Correction** using pretrained BERT
+- 💻 Clean frontend with responsive UI
+- ⚙️ Flask-powered backend API
 
 ---
 
 ## 🧠 Tech Stack
 
-| Component     | Technology       |
-|---------------|------------------|
-| Autocomplete  | Trained prefix `.pkl` model |
-| Autocorrect   | NeuSpell pretrained BERT model |
-| Backend       | Flask             |
-| Frontend      | HTML, CSS, JS     |
+| Feature       | Technology               |
+|---------------|--------------------------|
+| Autocomplete  | Custom `.pkl` model      |
+| Autocorrect   | NeuSpell pretrained BERT |
+| Backend       | Python Flask             |
+| Frontend      | HTML + CSS + JavaScript  |
 
 ---
 
-## 📁 Project Structure
+## 📁 Folder Structure
 
 ```
-
 AutoCorrectProject/
-
 ├── app.py                      # Flask backend
-
 ├── model/
-
-│   └── autocomplete\_model.pkl  # Your trained autocomplete model
-
+│   └── autocomplete_model.pkl  # Your autocomplete model
 ├── static/
-
-│   └── index.html              # Frontend interface
-
+│   └── index.html              # Frontend UI
 ├── requirements.txt
-
 └── README.md
-
-````
+```
 
 ---
 
 ## ⚙️ Installation
 
-1. **Clone this repository** or copy files to a folder.
-2. **Install dependencies**:
+1. **Clone or copy** the project files.
+2. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
-````
+```
 
-3. **(One-time)** The first time `Neuspell` is used, it will download a pretrained model (\~400MB).
+> Note: NeuSpell will auto-download its pretrained model (~400MB) on first run.
 
 ---
 
@@ -72,48 +62,41 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Open your browser and go to:
-
-```
-http://localhost:5000
-```
+Visit [http://localhost:5000](http://localhost:5000)
 
 ---
 
-## 📌 Notes
+## 💬 Example Query
 
-* The autocomplete model must be pre-trained and saved as:
+Typing:
+```
+I havv a dreem
+```
 
-  ```
-  model/autocomplete_model.pkl
-  ```
+Returns:
+- **Correction** → `I have a dream`
+- **Autocomplete** → `["have", "hate", "havey"]` (based on prefix `hav`)
 
-* The autocorrect model is loaded automatically from NeuSpell:
+---
 
+## ✏️ Customize
+
+- You can swap `BertChecker()` in `app.py` with other pretrained NeuSpell models:
   ```python
-  from neuspell import BertChecker
-  checker = BertChecker()
+  from neuspell import RobertaChecker
+  checker = RobertaChecker()
   checker.from_pretrained()
   ```
-
-* If you want to use a different pretrained model (e.g. RobertaChecker), you can change `BertChecker` to another available option in NeuSpell.
 
 ---
 
 ## 🙌 Credits
 
-* [NeuSpell](https://github.com/neuspell/neuspell) for pretrained spelling models
-* You — for training your own autocomplete!
+- [NeuSpell](https://github.com/neuspell/neuspell) – Pretrained spelling correction
+- Your own autocomplete training
 
 ---
 
 ## 📫 Contact
 
-For questions or issues, feel free to message me or open a pull request.
-
-```
-
----
-
-Let me know if you'd like this bundled into a downloadable `.zip`, or pushed to a GitHub repo with deploy instructions.
-```
+For questions or suggestions, feel free to message or fork this project.
