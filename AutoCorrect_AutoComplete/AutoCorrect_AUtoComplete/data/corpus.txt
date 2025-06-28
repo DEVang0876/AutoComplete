@@ -1,0 +1,16 @@
+The contents of the file /AutoCorrect_AUtoComplete/AutoCorrect_AUtoComplete/data/corpus.txt should include a sample text corpus that can be used for training the autocorrect and autocomplete models. Here is a suggested content for the corpus.txt file:
+
+This is a sample text corpus used for training the autocorrect and autocomplete models. It contains various sentences and phrases that represent common usage in the English language.
+
+1. The quick brown fox jumps over the lazy dog.
+2. A journey of a thousand miles begins with a single step.
+3. To be or not to be, that is the question.
+4. All that glitters is not gold.
+5. The only thing we have to fear is fear itself.
+6. In the middle of difficulty lies opportunity.
+7. Life is what happens when you're busy making other plans.
+8. The future belongs to those who believe in the beauty of their dreams.
+9. It does not matter how slowly you go as long as you do not stop.
+10. Success is not final, failure is not fatal: It is the courage to continue that counts.
+
+Feel free to add more sentences or modify the existing ones to better suit your training needs.
